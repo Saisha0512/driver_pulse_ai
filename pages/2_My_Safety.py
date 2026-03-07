@@ -62,8 +62,8 @@ st.markdown("""
 
   /* ── Global background ── */
   .stApp {
-    background: #0d0f14;
-    color: #e2e8f0;
+    background: #ffffff;
+    color: #0f172a;
     font-family: 'Inter', sans-serif;
   }
 
@@ -71,10 +71,40 @@ st.markdown("""
   #MainMenu, footer, header { visibility: hidden; }
   .block-container { padding: 1.5rem 2.5rem 3rem; max-width: 1400px; }
 
+  /* ── Streamlit default text colour overrides ── */
+  .stApp p, .stApp span, .stApp div, .stApp label { color: #0f172a; }
+  .stMarkdown { color: #0f172a; }
+
+  /* ── WHITE TEXT — force inside all black/dark backgrounds ── */
+  .risk-low-badge *, .risk-med-badge *, .risk-high-badge *,
+  .risk-low-badge, .risk-med-badge, .risk-high-badge { color: #ffffff !important; }
+
+  .pill-harsh, .pill-harsh *,
+  .pill-conflict, .pill-conflict *,
+  .pill-audio, .pill-audio *,
+  .pill-speed, .pill-speed * { color: #ffffff !important; }
+
+  /* Active tab text */
+  .stTabs [aria-selected="true"],
+  .stTabs [aria-selected="true"] * { color: #ffffff !important; }
+
+  /* Selectbox dropdown text */
+  .stSelectbox > div > div,
+  .stSelectbox > div > div *,
+  .stSelectbox > div > div > div { color: #ffffff !important; }
+  .stSelectbox svg { fill: #ffffff !important; }
+  /* Dropdown option list items (the open menu) stay dark on white */
+  [data-baseweb="popover"] *, [data-baseweb="menu"] *,
+  [role="option"], [role="option"] * { color: #0f172a !important; }
+
+  /* Button text */
+  .stButton > button,
+  .stButton > button * { color: #ffffff !important; }
+
   /* ── Page header band ── */
   .page-header {
-    background: linear-gradient(135deg, #111827 0%, #1a2035 100%);
-    border: 1px solid #1e293b;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 16px;
     padding: 28px 36px;
     margin-bottom: 32px;
@@ -86,13 +116,13 @@ st.markdown("""
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #f59e0b, #ef4444, #8b5cf6);
+    background: linear-gradient(90deg, #000000, #374151, #000000);
   }
   .page-title {
     font-family: 'Rajdhani', sans-serif;
     font-size: 2.2rem;
     font-weight: 700;
-    color: #f8fafc;
+    color: #000000;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     margin: 0;
@@ -109,13 +139,13 @@ st.markdown("""
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #1e293b;
-    border: 1px solid #334155;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
     border-radius: 8px;
     padding: 6px 14px;
     font-family: 'Roboto Mono', monospace;
     font-size: 0.8rem;
-    color: #94a3b8;
+    color: #334155;
   }
 
   /* ── Section labels ── */
@@ -125,7 +155,7 @@ st.markdown("""
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: #475569;
+    color: #64748b;
     margin-bottom: 14px;
     margin-top: 8px;
     display: flex;
@@ -136,7 +166,7 @@ st.markdown("""
     content: '';
     flex: 1;
     height: 1px;
-    background: #1e293b;
+    background: #e2e8f0;
   }
 
   /* ── KPI cards ── */
@@ -147,14 +177,14 @@ st.markdown("""
     margin-bottom: 28px;
   }
   .kpi-card {
-    background: #111827;
-    border: 1px solid #1e293b;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 12px;
     padding: 20px 24px;
     position: relative;
     transition: border-color 0.2s;
   }
-  .kpi-card:hover { border-color: #334155; }
+  .kpi-card:hover { border-color: #94a3b8; }
   .kpi-card.risk-low  { border-left: 3px solid #10b981; }
   .kpi-card.risk-med  { border-left: 3px solid #f59e0b; }
   .kpi-card.risk-high { border-left: 3px solid #ef4444; }
@@ -164,7 +194,7 @@ st.markdown("""
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #475569;
+    color: #64748b;
     margin-bottom: 8px;
   }
   .kpi-value {
@@ -172,11 +202,11 @@ st.markdown("""
     font-size: 2.2rem;
     font-weight: 700;
     line-height: 1;
-    color: #f1f5f9;
+    color: #000000;
   }
   .kpi-unit {
     font-size: 0.75rem;
-    color: #64748b;
+    color: #94a3b8;
     margin-top: 4px;
   }
   .kpi-trend {
@@ -185,12 +215,12 @@ st.markdown("""
   }
   .trend-up   { color: #ef4444; }
   .trend-down { color: #10b981; }
-  .trend-flat { color: #64748b; }
+  .trend-flat { color: #94a3b8; }
 
   /* ── Risk score gauge card ── */
   .risk-card {
-    background: #111827;
-    border: 1px solid #1e293b;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 16px;
     padding: 32px;
     text-align: center;
@@ -213,9 +243,9 @@ st.markdown("""
     text-transform: uppercase;
     margin-top: 10px;
   }
-  .risk-low-badge  { background: #052e16; color: #10b981; border: 1px solid #10b981; }
-  .risk-med-badge  { background: #451a03; color: #f59e0b; border: 1px solid #f59e0b; }
-  .risk-high-badge { background: #450a0a; color: #ef4444; border: 1px solid #ef4444; }
+  .risk-low-badge  { background: #000000; color: #ffffff; border: 1px solid #000000; }
+  .risk-med-badge  { background: #000000; color: #ffffff; border: 1px solid #000000; }
+  .risk-high-badge { background: #000000; color: #ffffff; border: 1px solid #000000; }
 
   /* ── Timeline event pills ── */
   .event-pill {
@@ -227,15 +257,15 @@ st.markdown("""
     font-family: 'Roboto Mono', monospace;
     margin: 2px;
   }
-  .pill-harsh    { background: #450a0a; color: #fca5a5; border: 1px solid #7f1d1d; }
-  .pill-audio    { background: #1a1040; color: #c4b5fd; border: 1px solid #4c1d95; }
-  .pill-conflict { background: #431407; color: #fdba74; border: 1px solid #7c2d12; }
-  .pill-speed    { background: #0c1a40; color: #93c5fd; border: 1px solid #1e3a5f; }
+  .pill-harsh    { background: #000000; color: #ffffff; border: 1px solid #000000; }
+  .pill-audio    { background: #1e1b4b; color: #ffffff; border: 1px solid #1e1b4b; }
+  .pill-conflict { background: #000000; color: #ffffff; border: 1px solid #000000; }
+  .pill-speed    { background: #1e3a5f; color: #ffffff; border: 1px solid #1e3a5f; }
 
   /* ── Insight card ── */
   .insight-card {
-    background: #0f1822;
-    border: 1px solid #1e293b;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 10px;
     padding: 16px 20px;
     margin-bottom: 12px;
@@ -247,12 +277,12 @@ st.markdown("""
   .insight-title {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #e2e8f0;
+    color: #000000;
     margin-bottom: 3px;
   }
   .insight-body {
     font-size: 0.78rem;
-    color: #64748b;
+    color: #475569;
     line-height: 1.5;
   }
 
@@ -262,9 +292,10 @@ st.markdown("""
     grid-template-columns: 140px 120px 80px 1fr;
     gap: 12px;
     padding: 12px 16px;
-    border-bottom: 1px solid #1e293b;
+    border-bottom: 1px solid #e2e8f0;
     font-size: 0.8rem;
     align-items: center;
+    color: #0f172a;
   }
   .flag-row:last-child { border-bottom: none; }
   .flag-table-header {
@@ -272,17 +303,17 @@ st.markdown("""
     grid-template-columns: 140px 120px 80px 1fr;
     gap: 12px;
     padding: 8px 16px;
-    background: #0d0f14;
+    background: #f1f5f9;
     border-radius: 8px 8px 0 0;
     font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #475569;
+    color: #64748b;
   }
-  .sev-high { color: #ef4444; }
-  .sev-med  { color: #f59e0b; }
-  .sev-low  { color: #10b981; }
+  .sev-high { color: #dc2626; font-weight: 600; }
+  .sev-med  { color: #d97706; font-weight: 600; }
+  .sev-low  { color: #059669; font-weight: 600; }
 
   /* ── Contribution bar ── */
   .contrib-row {
@@ -293,12 +324,12 @@ st.markdown("""
   }
   .contrib-label {
     font-size: 0.75rem;
-    color: #94a3b8;
+    color: #334155;
     min-width: 200px;
   }
   .contrib-bar-bg {
     flex: 1;
-    background: #1e293b;
+    background: #e2e8f0;
     border-radius: 4px;
     height: 8px;
     overflow: hidden;
@@ -310,18 +341,18 @@ st.markdown("""
   .contrib-score {
     font-family: 'Roboto Mono', monospace;
     font-size: 0.72rem;
-    color: #64748b;
+    color: #475569;
     min-width: 36px;
     text-align: right;
   }
 
   /* ── Tabs ── */
   .stTabs [data-baseweb="tab-list"] {
-    background: #111827;
+    background: #f1f5f9;
     border-radius: 10px;
     padding: 4px;
     gap: 4px;
-    border: 1px solid #1e293b;
+    border: 1px solid #e2e8f0;
   }
   .stTabs [data-baseweb="tab"] {
     background: transparent;
@@ -335,8 +366,8 @@ st.markdown("""
     border: none;
   }
   .stTabs [aria-selected="true"] {
-    background: #1e293b !important;
-    color: #f8fafc !important;
+    background: #000000 !important;
+    color: #ffffff !important;
   }
   .stTabs [data-baseweb="tab-panel"] {
     padding-top: 24px;
@@ -344,8 +375,8 @@ st.markdown("""
 
   /* ── Chart containers ── */
   .chart-card {
-    background: #111827;
-    border: 1px solid #1e293b;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 12px;
     padding: 20px;
   }
@@ -353,7 +384,7 @@ st.markdown("""
     font-family: 'Rajdhani', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    color: #cbd5e1;
+    color: #0f172a;
     letter-spacing: 0.05em;
     margin-bottom: 16px;
   }
@@ -366,11 +397,41 @@ st.markdown("""
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
+  .stSelectbox > div > div {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid #000000 !important;
+    border-radius: 8px !important;
+  }
+  .stSelectbox > div > div > div {
+    color: #ffffff !important;
+  }
+  .stSelectbox svg { fill: #ffffff !important; }
+
+  /* ── All Streamlit buttons ── */
+  .stButton > button {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid #000000 !important;
+    border-radius: 8px !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important;
+  }
+  .stButton > button:hover {
+    background: #1f2937 !important;
+    border-color: #1f2937 !important;
+    color: #ffffff !important;
+  }
 
   /* ── Scrollbar ── */
   ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: #0d0f14; }
-  ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+  ::-webkit-scrollbar-track { background: #f1f5f9; }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+  /* ── st.info / st.warning boxes ── */
+  .stAlert { background: #f1f5f9 !important; color: #0f172a !important;
+             border: 1px solid #cbd5e1 !important; border-radius: 10px !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -381,12 +442,12 @@ st.markdown("""
 PLOTLY_LAYOUT = dict(
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,0)",
-    font=dict(family="Inter, sans-serif", color="#94a3b8", size=11),
+    font=dict(family="Inter, sans-serif", color="#334155", size=11),
     margin=dict(l=10, r=10, t=10, b=10),
-    xaxis=dict(gridcolor="#1e293b", showgrid=True, zeroline=False),
-    yaxis=dict(gridcolor="#1e293b", showgrid=True, zeroline=False),
-    legend=dict(bgcolor="rgba(0,0,0,0)", bordercolor="#1e293b", borderwidth=1),
-    hoverlabel=dict(bgcolor="#1e293b", font_color="#e2e8f0", bordercolor="#334155"),
+    xaxis=dict(gridcolor="#e2e8f0", showgrid=True, zeroline=False, color="#334155"),
+    yaxis=dict(gridcolor="#e2e8f0", showgrid=True, zeroline=False, color="#334155"),
+    legend=dict(bgcolor="rgba(255,255,255,0.8)", bordercolor="#e2e8f0", borderwidth=1, font=dict(color="#334155")),
+    hoverlabel=dict(bgcolor="#f8fafc", font_color="#0f172a", bordercolor="#cbd5e1"),
 )
 
 COLOR_RISK_HIGH   = "#ef4444"
@@ -523,14 +584,14 @@ with col_gauge:
                 "suffix": ""},
         gauge={
             "axis": {"range": [0, 100], "tickwidth": 1,
-                     "tickcolor": "#334155", "tickfont": {"color": "#475569", "size": 10}},
+                     "tickcolor": "#cbd5e1", "tickfont": {"color": "#94a3b8", "size": 10}},
             "bar": {"color": gauge_color, "thickness": 0.25},
-            "bgcolor": "#111827",
+            "bgcolor": "#f8fafc",
             "borderwidth": 0,
             "steps": [
-                {"range": [0, 35],   "color": "#052e16"},
-                {"range": [35, 65],  "color": "#451a03"},
-                {"range": [65, 100], "color": "#450a0a"},
+                {"range": [0, 35],   "color": "#d1fae5"},
+                {"range": [35, 65],  "color": "#fef3c7"},
+                {"range": [65, 100], "color": "#fee2e2"},
             ],
             "threshold": {
                 "line": {"color": gauge_color, "width": 3},
@@ -781,7 +842,7 @@ with tab_motion:
             st.markdown('<div class="section-label">DETECTED HARSH EVENTS</div>', unsafe_allow_html=True)
 
             st.markdown("""
-            <div style="background:#111827; border:1px solid #1e293b; border-radius:12px; overflow:hidden;">
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
               <div class="flag-table-header">
                 <span>Timestamp</span><span>Event Type</span><span>Severity</span><span>Details</span>
               </div>
@@ -794,12 +855,12 @@ with tab_motion:
                        "sudden_jerk": "pill-conflict", "overspeed": "pill-speed"}.get(row["event_type"], "pill-harsh")
                 st.markdown(f"""
                 <div class="flag-row">
-                  <span style="font-family:'Roboto Mono',monospace; color:#64748b; font-size:0.75rem">
+                  <span style="font-family:'Roboto Mono',monospace; color:#94a3b8; font-size:0.75rem">
                     {str(row['timestamp'])[:19] if pd.notnull(row.get('timestamp')) else f"{row['elapsed_seconds']:.0f}s"}
                   </span>
                   <span><span class="event-pill {sc}">{row['event_type'].replace('_',' ').upper()}</span></span>
                   <span class="sev-{sev}">{sev.upper()}</span>
-                  <span style="color:#94a3b8; font-size:0.78rem">
+                  <span style="color:#334155; font-size:0.78rem">
                     Magnitude: <b>{row['magnitude']:.2f}g</b> · Speed: <b>{row['speed_kmh']:.1f} km/h</b>
                   </span>
                 </div>
@@ -928,7 +989,7 @@ with tab_audio:
         if not loud_periods.empty:
             st.markdown('<div class="section-label">SUSTAINED HIGH-AUDIO PERIODS</div>', unsafe_allow_html=True)
             st.markdown("""
-            <div style="background:#111827; border:1px solid #1e293b; border-radius:12px; overflow:hidden;">
+            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
               <div class="flag-table-header">
                 <span>Timestamp</span><span>Classification</span><span>Level</span><span>Duration</span>
               </div>
@@ -939,12 +1000,12 @@ with tab_audio:
                 sev_c = "sev-high" if cls in ["argument","very_loud"] else "sev-med"
                 st.markdown(f"""
                 <div class="flag-row">
-                  <span style="font-family:'Roboto Mono',monospace; color:#64748b; font-size:0.75rem">
+                  <span style="font-family:'Roboto Mono',monospace; color:#94a3b8; font-size:0.75rem">
                     {str(row.get('timestamp',''))[:19] or f"{row['elapsed_seconds']:.0f}s"}
                   </span>
                   <span><span class="event-pill {sc}">{cls.upper()}</span></span>
                   <span class="{sev_c}">{row['audio_level_db']:.1f} dB</span>
-                  <span style="color:#94a3b8; font-size:0.78rem">
+                  <span style="color:#475569; font-size:0.78rem">
                     Sustained for <b>{row.get('sustained_duration_sec', 0):.0f}s</b>
                   </span>
                 </div>
@@ -977,13 +1038,13 @@ with tab_conflict:
 
     if conflict_df.empty:
         st.markdown("""
-        <div style="text-align:center; padding:60px; background:#0a1628; border:1px solid #1e293b;
-                    border-radius:12px; color:#10b981;">
+        <div style="text-align:center; padding:60px; background:#f8fafc; border:1px solid #e2e8f0;
+                    border-radius:12px; color:#059669;">
           <div style="font-size:3rem; margin-bottom:12px;">✅</div>
-          <div style="font-family:'Rajdhani',sans-serif; font-size:1.3rem; font-weight:600;">
+          <div style="font-family:'Rajdhani',sans-serif; font-size:1.3rem; font-weight:600; color:#000000;">
             No Conflict Moments Detected
           </div>
-          <div style="font-size:0.85rem; color:#475569; margin-top:8px;">
+          <div style="font-size:0.85rem; color:#64748b; margin-top:8px;">
             Motion and audio signals did not overlap significantly in any trip.
           </div>
         </div>
@@ -1053,10 +1114,10 @@ with tab_conflict:
         st.markdown('<div class="section-label">CONFLICT MOMENT DETAIL</div>', unsafe_allow_html=True)
 
         st.markdown("""
-        <div style="background:#111827; border:1px solid #1e293b; border-radius:12px; overflow:hidden;">
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
           <div style="display:grid; grid-template-columns:80px 120px 110px 110px 110px 1fr; gap:12px;
-                       padding:8px 16px; background:#0d0f14; font-size:0.65rem; font-weight:600;
-                       letter-spacing:0.12em; text-transform:uppercase; color:#475569;">
+                       padding:8px 16px; background:#f1f5f9; font-size:0.65rem; font-weight:600;
+                       letter-spacing:0.12em; text-transform:uppercase; color:#64748b;">
             <span>Time (s)</span><span>Motion Event</span><span>Motion Score</span>
             <span>Audio Score</span><span>Combined</span><span>Severity</span>
           </div>
@@ -1067,7 +1128,7 @@ with tab_conflict:
             sc  = {"high": "sev-high", "medium": "sev-med", "low": "sev-low"}.get(sev, "")
             st.markdown(f"""
             <div style="display:grid; grid-template-columns:80px 120px 110px 110px 110px 1fr; gap:12px;
-                         padding:12px 16px; border-bottom:1px solid #1e293b; font-size:0.8rem; align-items:center;">
+                         padding:12px 16px; border-bottom:1px solid #e2e8f0; font-size:0.8rem; align-items:center;">
               <span style="font-family:'Roboto Mono',monospace; color:#64748b">{row['elapsed_seconds']:.0f}s</span>
               <span><span class="event-pill pill-harsh">{row['motion_event'].replace('_',' ').upper()}</span></span>
               <span style="color:#f59e0b">{row['motion_score']:.3f}</span>
@@ -1160,10 +1221,10 @@ with tab_flags:
         st.markdown('<div class="section-label">ALL FLAGGED EVENTS</div>', unsafe_allow_html=True)
 
         st.markdown("""
-        <div style="background:#111827; border:1px solid #1e293b; border-radius:12px; overflow:hidden;">
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
           <div style="display:grid; grid-template-columns:90px 140px 100px 80px 80px 80px 1fr; gap:10px;
-                       padding:8px 16px; background:#0d0f14; font-size:0.65rem; font-weight:600;
-                       letter-spacing:0.12em; text-transform:uppercase; color:#475569;">
+                       padding:8px 16px; background:#f1f5f9; font-size:0.65rem; font-weight:600;
+                       letter-spacing:0.12em; text-transform:uppercase; color:#64748b;">
             <span>Trip</span><span>Timestamp</span><span>Type</span>
             <span>Severity</span><span>Motion</span><span>Audio</span><span>Context</span>
           </div>
@@ -1177,11 +1238,11 @@ with tab_flags:
             flag_type_clean = str(row.get("flag_type","")).replace("_"," ").title()
             st.markdown(f"""
             <div style="display:grid; grid-template-columns:90px 140px 100px 80px 80px 80px 1fr; gap:10px;
-                         padding:10px 16px; border-bottom:1px solid #1e293b; font-size:0.78rem; align-items:center;">
+                         padding:10px 16px; border-bottom:1px solid #e2e8f0; font-size:0.78rem; align-items:center;">
               <span style="font-family:'Roboto Mono',monospace; color:#64748b; font-size:0.72rem">
                 {row.get('trip_id','')}
               </span>
-              <span style="color:#475569; font-size:0.72rem">
+              <span style="color:#94a3b8; font-size:0.72rem">
                 {str(row.get('timestamp',''))[:19]}
               </span>
               <span><span class="event-pill {sc}">{flag_type_clean}</span></span>
@@ -1213,10 +1274,10 @@ with tab_score:
           <div class="risk-score-display" style="color:{risk_color(risk_cat)}">{risk_score:.0f}</div>
           <div style="font-size:0.75rem; color:#475569; margin-top:4px;">out of 100</div>
           <div class="risk-cat-badge {'risk-low-badge' if risk_cat=='Low' else 'risk-med-badge' if risk_cat=='Medium' else 'risk-high-badge'}">{risk_cat} Risk</div>
-          {"<div style='margin-top:14px; font-size:0.75rem; color:#475569'>ML Validation: " + ml_cat + (" (" + str(confidence) + "% conf)" if confidence else "") + "</div>" if ml_cat else ""}
-          <div style="margin-top:24px; border-top:1px solid #1e293b; padding-top:16px; text-align:left;">
-            <div style="font-size:0.7rem; color:#475569; margin-bottom:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase">Method</div>
-            <div style="font-size:0.78rem; color:#64748b; line-height:1.6">
+          {"<div style='margin-top:14px; font-size:0.75rem; color:#64748b'>ML Validation: " + ml_cat + (" (" + str(confidence) + "% conf)" if confidence else "") + "</div>" if ml_cat else ""}
+          <div style="margin-top:24px; border-top:1px solid #e2e8f0; padding-top:16px; text-align:left;">
+            <div style="font-size:0.7rem; color:#64748b; margin-bottom:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase">Method</div>
+            <div style="font-size:0.78rem; color:#475569; line-height:1.6">
               Rule-based scoring (70%) blended with<br>Random Forest classifier (30%).<br><br>
               Rule score is transparent and explainable.<br>
               RF validates the pattern against 500 synthetic driver profiles.
@@ -1276,9 +1337,9 @@ with tab_score:
                "margin": dict(l=30, r=30, t=30, b=30),
                "polar": dict(
                    bgcolor="rgba(0,0,0,0)",
-                   radialaxis=dict(visible=True, range=[0, 1], gridcolor="#1e293b",
-                                   tickfont=dict(color="#475569", size=8)),
-                   angularaxis=dict(gridcolor="#1e293b", tickfont=dict(color="#94a3b8", size=10)),
+                   radialaxis=dict(visible=True, range=[0, 1], gridcolor="#e2e8f0",
+                                   tickfont=dict(color="#94a3b8", size=8)),
+                   angularaxis=dict(gridcolor="#e2e8f0", tickfont=dict(color="#334155", size=10)),
                )},
         )
         st.plotly_chart(fig_radar, use_container_width=True, config={"displayModeBar": False})
@@ -1336,9 +1397,9 @@ with tab_score:
 #  FOOTER
 # ──────────────────────────────────────────────────────────────────
 st.markdown("""
-<div style="margin-top:48px; padding:20px 0; border-top:1px solid #1e293b;
+<div style="margin-top:48px; padding:20px 0; border-top:1px solid #e2e8f0;
             display:flex; justify-content:space-between; align-items:center;
-            font-size:0.72rem; color:#334155;">
+            font-size:0.72rem; color:#94a3b8;">
   <span>🛡 Driver Pulse AI · Safety Module v1.0</span>
   <span style="font-family:'Roboto Mono',monospace">
     Signals: ACCELEROMETER · AUDIO · FLAGGED_MOMENTS
